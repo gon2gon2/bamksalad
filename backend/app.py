@@ -22,10 +22,10 @@ def create_app():
     # ORM
     db.init_app(app)
     migrate.init_app(app, db)
+    # CORS
     cors.init_app(app)
     return app
 
 if __name__ == "__main__":
     app = create_app()
-    # app.run(host='0.0.0.0', port='5000', debug=True)
-    app.run(debug=True)
+    app.run()

@@ -2,4 +2,6 @@ Flask
 Flask-SQLAlchemy
 Flask-Migrate
 Flask-Cors
+PyMySQL
+mysqlclient
 config
