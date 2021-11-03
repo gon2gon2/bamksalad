@@ -1,0 +1,87 @@
+.class-header-div {
+    /* display: inline;
+    position: fixed;
+    background-color:brown;
+    width: 100%; */
+
+    box-sizing: border-box;
+    margin: 0;
+    
+    
+}
+
+.class-header {
+    /* display: flex; */
+    position: fixed;
+    background-color: brown;
+    top:0;
+    width: 100%;
+    
+}
+
+.class-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    padding: 8px 12px;
+    height: 40px;
+}
+
+.class-header-ul {
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    list-style: none;
+}
+
+.class-logo {
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.class-div-menu {
+    display: flex;
+    /* flex-direction: row-reverse; */
+    justify-content: center;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.class-space {
+    height: 40px;
+}
+
+/* #menu-login { // NavLink => use Styled component -> header.js
+    padding: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+#menu-register {
+    padding: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-decoration: none;
+
+}
+
+#menu-login:hover {
+    background-color: red;
+    border-radius: 15px;
+}
+
+#menu-register:hover {
+    background-color: red;
+    border-radius: 15px;
+} */
+
+
