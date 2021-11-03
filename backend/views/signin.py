@@ -1,5 +1,5 @@
 from flask import Blueprint, request, session
-from model.user_model import *
+from models.user_model import *
 import json
 import bcrypt
 
