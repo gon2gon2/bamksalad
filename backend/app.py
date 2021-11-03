@@ -14,11 +14,16 @@ def create_app():
     
     app.config.from_object(config)
 
-    from views import user_views, analysis_views
+    from views import user_views, analysis_views, signup, signin
     url_prefix='/api'
     app.register_blueprint(user_views.bp, url_prefix=url_prefix)
     app.register_blueprint(analysis_views.bp, url_prefix=url_prefix)
+    app.register_blueprint(signup.bp, url_prefix=url_prefix)
+    app.register_blueprint(signin.bp, url_prefix=url_prefix)
     
+
+
+
     # ORM
     db.init_app(app)
     migrate.init_app(app, db)
