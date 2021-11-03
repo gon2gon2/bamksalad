@@ -14,15 +14,14 @@ def create_app():
     
     app.config.from_object(config)
 
-    from views import user_views, analysis_views, signup, signin
+    from views import analysis, idinquiry, pwinquiry, pwreset, signup, signin
     url_prefix='/api'
-    app.register_blueprint(user_views.bp, url_prefix=url_prefix)
-    app.register_blueprint(analysis_views.bp, url_prefix=url_prefix)
+    app.register_blueprint(analysis.bp, url_prefix=url_prefix)
+    app.register_blueprint(idinquiry.bp, url_prefix=url_prefix)
+    app.register_blueprint(pwinquiry.bp, url_prefix=url_prefix)
+    app.register_blueprint(pwreset.bp, url_prefix=url_prefix)
     app.register_blueprint(signup.bp, url_prefix=url_prefix)
     app.register_blueprint(signin.bp, url_prefix=url_prefix)
-    
-
-
 
     # ORM
     db.init_app(app)
@@ -33,4 +32,4 @@ def create_app():
 
 if __name__ == "__main__":
     app = create_app()
-    app.run()
+    app.run(debug=True)

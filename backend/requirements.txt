@@ -5,3 +5,4 @@ Flask-Cors
 PyMySQL
 mysqlclient
 config
+gunicorn

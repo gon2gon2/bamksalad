@@ -14,7 +14,12 @@ def add_user():
         else:
             pwd = user_info['password']
             hash_pwd = (bcrypt.hashpw(pwd.encode('UTF-8'), bcrypt.gensalt())).decode('utf-8')
-            query = User(user_info['email'], user_info['username'], hash_pwd)
+            query = User(
+                name=user_info['name'],
+                email = user_info['email'],
+                password = hash_pwd,
+                phone_number = user_info['phone_number']
+                )
             db.session.add(query)
             db.session.commit()
             db.session.close()
