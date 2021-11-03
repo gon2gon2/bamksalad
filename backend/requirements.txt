@@ -6,3 +6,4 @@ PyMySQL
 mysqlclient
 config
 gunicorn
+bcrypt
