@@ -10,17 +10,12 @@ def add_user():
         user_info = request.get_json()
         user = User.query.filter_by(email = user_info['email']).first()
         if user:
-            return '이미 등록된 회원입니다.'
+            return '이미 등록된 회원입니다.', 409
         else:
             pwd = user_info['password']
             hash_pwd = (bcrypt.hashpw(pwd.encode('UTF-8'), bcrypt.gensalt())).decode('utf-8')
-            query = User(
-                name=user_info['name'],
-                email = user_info['email'],
-                password = hash_pwd,
-                phone_number = user_info['phone_number']
-                )
+            query = User(user_info['email'], user_info['username'], hash_pwd)
             db.session.add(query)
             db.session.commit()
             db.session.close()
-            return 'Success'
+            return '회원가입 완료', 200
