@@ -9,16 +9,16 @@ bp = Blueprint('signin',__name__)
 def login_user():
     request_data = json.loads(request.data) 
     user_email = request_data['email']
-    user_pwd = request_data['password'].encode('utf-8')
+    user_password = request_data['password'].encode('utf-8')
     data = User.query.filter_by(email = user_email).first()
 
     if data is None:
-        return 400, "회원 정보가 없습니다."
+        return "회원 정보가 없습니다.", 400
     else:
-        check_password = bcrypt.checkpw(user_pwd, data.pwd.encode('utf-8'))
+        check_password = bcrypt.checkpw(user_password, data.password.encode('utf-8'))
         if check_password:
             session['login'] = data.email
-            return data.user_name
+            return data.name, 200
         else:
-            return 400, "패스워드가 다릅니다."
+            return "패스워드가 다릅니다.", 403
 
